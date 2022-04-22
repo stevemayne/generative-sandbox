@@ -22,8 +22,8 @@ while invalid:
     small_wheel_1_rotation_step = np.pi/random.randint(10, 40) #0.2064
     small_wheel_2_rotation_step = small_wheel_1_rotation_step * random.random() * 2 #np.pi/15 #0.2
     wheel_2_offset_from_wheel_1 = np.pi/random.randint(4, 8)
-    wheel_1_size = random.randint(20, 200) #30
-    wheel_2_size = random.randint(20, 200) #38
+    wheel_1_radius = random.randint(20, 200) #30
+    wheel_2_radius = random.randint(20, 200) #38
     arm_length_1 = random.randint(200, 350) #350
     arm_joint_1 = random.randint(100, 200)
     arm_length_2 = arm_joint_1 + random.randint(20, 100)
@@ -32,14 +32,18 @@ while invalid:
 
     # Size checks
     distance_between_wheels = wheel_2_offset_from_wheel_1 * min(big_wheel_radius_2, big_wheel_radius_1)
-    if arm_joint_1 + arm_length_2 <= (wheel_1_size + wheel_2_size + distance_between_wheels):
+    if arm_joint_1 + arm_length_2 <= (wheel_1_radius + wheel_2_radius + distance_between_wheels):
+        # Arms won't reach at maximum stretch
+        invalid = True
+    if distance_between_wheels - wheel_1_radius - wheel_2_radius < 0:
+        # Wheels overlap
         invalid = True
 
 bigger_wheel = None
 big_wheel1 = Wheel(500, 500, big_wheel_rotation_step * factor, big_wheel_radius_1, 0) 
 big_wheel2 = Wheel(500, 500, big_wheel_rotation_step * factor, big_wheel_radius_2, wheel_2_offset_from_wheel_1)
-wheel1 = Wheel(0, 0, small_wheel_1_rotation_step * factor, wheel_1_size, 0, big_wheel1, color=(255,255,255)) 
-wheel2 = Wheel(0, 0, small_wheel_2_rotation_step * factor, wheel_2_size, 0, big_wheel2, color=(255,255,255))
+wheel1 = Wheel(0, 0, small_wheel_1_rotation_step * factor, wheel_1_radius, 0, big_wheel1, color=(255,255,255)) 
+wheel2 = Wheel(0, 0, small_wheel_2_rotation_step * factor, wheel_2_radius, 0, big_wheel2, color=(255,255,255))
 
 objects.clear()
 objects.append(big_wheel1)

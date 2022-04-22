@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Projects
 
-### Spirals
+### Spirograph
 
 Two rotating wheels orbiting a larger wheel, connected with a lever with a pen on the end. Inspired by the patterns created by Spirograph in the 80s.
 
@@ -21,6 +21,8 @@ Hit <space> to show / hide the mechanism
 ```
 python spirograph.py
 ```
+
+<img src="images/spirograph.png" width="200" height="200">
 
 ### Branches
 
