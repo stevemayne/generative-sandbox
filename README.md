@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 Two rotating wheels orbiting a larger wheel, connected with a lever with a pen on the end. Inspired by the patterns created by Spirograph in the 80s.
 
-Hit <space> to show / hide the mechanism
+Hit <kbd>space</kbd> to show / hide the mechanism
 
 ```
 python spirograph.py
