@@ -16,8 +16,6 @@ pip install -r requirements.txt
 
 Two rotating wheels orbiting a larger wheel, connected with a lever with a pen on the end. Inspired by the patterns created by Spirograph in the 80s.
 
-Known bug: Some trig doesn't work, so if it fails just re-run it for a different set of parameters. I will fix this when I get a minute!
-
 Hit <space> to show / hide the mechanism
 
 ```

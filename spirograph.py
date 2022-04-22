@@ -78,10 +78,14 @@ while running:
         angle_from_1_to_2 = np.arctan2(x2-x, y2-y)
 
         # Use law of cosines to work out interior angle 
-        gamma = np.arccos((np.power(distance_between_coords, 2) + \
+        value = (np.power(distance_between_coords, 2) + \
             np.power(arm_length_2, 2) - \
-            np.power(arm_joint_1, 2)) / 
-            (2 * arm_length_2 * distance_between_coords))
+            np.power(arm_joint_1, 2)) / (2 * arm_length_2 * distance_between_coords)
+        if value < -1:
+            value = -1
+        if value > 1:
+            value = 1
+        gamma = np.arccos(value)
 
         # Add them together
         arm_1_angle = angle_from_1_to_2 + gamma
